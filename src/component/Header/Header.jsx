@@ -2,7 +2,7 @@ import { Flex, Text, Button } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import DataEntryModal from "../DataEntryModal/DataEntryModal";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { postTableData } from "../../libs/apis/dataTable";
  
@@ -14,7 +14,7 @@ export default function Header({fetchData,data}) {
     };
 
     const handleSync = () => {
-        const res = fetchData().then((res) => {
+        fetchData().then((res) => {
             if (res.success) {
                 alert("Fetched data successfully");
             } 
