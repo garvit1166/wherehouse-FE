@@ -14,13 +14,20 @@ export default function Header({fetchData,data}) {
     };
 
     const handleSync = () => {
-        const res = fetchData();
+        const res = fetchData().then((res) => {
+            if (res.success) {
+                alert("Fetched data successfully");
+                // toast.success('Fetched data successfully', {
+                //     position: 'top-right',
+                // });
+            } 
+        });;
         console.log(res);
-        if (res) {
-            toast.success('Fetched data successfully', {
-                position: 'top-right',
-            });
-        }
+        // if (res) {
+        //     toast.success('Fetched data successfully', {
+        //         position: 'top-right',
+        //     });
+        // }
     }
  
     const handleCloseModal = () => {

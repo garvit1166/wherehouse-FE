@@ -11,9 +11,9 @@ export default function Home() {
     const [data, setData] = useState([]);
  
     const fetchData = () => {
-        fetchTableData().then((res) => {
+        return fetchTableData().then((res) => {
             setData(res)
-            return true
+            return {success:true}
         }).catch(e => {
             toast.error('An error occurred!', {
                 position: "top-right",
