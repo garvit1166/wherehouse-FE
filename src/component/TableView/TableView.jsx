@@ -9,14 +9,11 @@ import {
     Flex,
   } from "@chakra-ui/react";
 import React from 'react'
-
 import './tableView.css'
  
-const customHeaders = ['id','Avatar', 'Performance_Score']
+const customHeaders = ['Id','Avatar_Name', 'Performance_Score']
 
- 
 const TableView = ({data}) => {
-    
  
   return (
     <Flex w="100%" flexDir={'column'}>
@@ -34,7 +31,7 @@ const TableView = ({data}) => {
                     </Tr>
                 </Thead>
                 <Tbody>
-                {data.map((item, index) =>{
+                {data && data.map((item, index) =>{
                     return(
                     <Tr className="dataTableRows" key={index} h='3rem'>
                         {customHeaders.map((header) => (

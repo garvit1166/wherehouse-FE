@@ -4,86 +4,26 @@ import TableView from "../../component/TableView/TableView";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from "react";
+import { fetchTableData } from "../../libs/apis/dataTable";
 
  
 export default function Home() {
-    const [data, setData] = useState([
-        {
-            id: 1,
-            Avatar: 'Test1',
-            Performance_Score: 2
-        },
-        {
-            id: 2,
-            Avatar: 'Test1',
-            Performance_Score: 2
-        },
-        {
-            id: 3,
-            Avatar: 'Test1',
-            Performance_Score: 2
-        },
-        {
-            id: 4,
-            Avatar: 'Test1',
-            Performance_Score: 2
-        },
-        {
-            id: 5,
-            Avatar: 'Test1',
-            Performance_Score: 2
-        },
-        {
-            id: 6,
-            Avatar: 'Test1',
-            Performance_Score: 2
-        },
-        {
-            id: 1,
-            Avatar: 'Test1',
-            Performance_Score: 2
-        },
-        {
-            id: 2,
-            Avatar: 'Test1',
-            Performance_Score: 2
-        },
-        {
-            id: 3,
-            Avatar: 'Test1',
-            Performance_Score: 2
-        },
-        {
-            id: 4,
-            Avatar: 'Test1',
-            Performance_Score: 2
-        },
-        {
-            id: 5,
-            Avatar: 'Test1',
-            Performance_Score: 2
-        },
-        {
-            id: 6,
-            Avatar: 'Test1',
-            Performance_Score: 2
-        },
-    ]);
+    const [data, setData] = useState([]);
  
     const fetchData = () => {
-        // fetchTableData().then((res) => {
-        //     setData(res.data)
-        //     return true
-        // }).catch(e => {
-        //     toast.error('An error occurred!', {
-        //         position: "top-right",
-        //     });
-        // });
-        return true
+        fetchTableData().then((res) => {
+            setData(res)
+            return true
+        }).catch(e => {
+            toast.error('An error occurred!', {
+                position: "top-right",
+            });
+            return false;
+        });
     }
     useEffect(() => {
         fetchData();
-    }, [data])
+    }, [])
     return (
         <>
             <Flex bg="#e2e2e2" h='100vh' w='100%'>
@@ -95,7 +35,7 @@ export default function Home() {
                     borderRadius="15px"
                     w='100%'
                 >
-                    <Header fetchData={fetchData}/>
+                    <Header fetchData={fetchData} data={data}/>
                     <Divider colorScheme="blackAlpha" boxShadow="4px 4px 7px #403d3d !important" />
                     <Flex h="95%" justify="center" align="center" overflowY="auto" w="100%" >
                     <TableView data={data}/>

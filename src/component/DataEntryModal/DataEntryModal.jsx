@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import './DataEntryModal.css';
  
-const DataEntryModal = ({ isOpen, onClose, onSave }) => {
+const DataEntryModal = ({ isOpen, onClose, onSave ,data}) => {
     const [avatar, setAvatar] = useState('');
     const [score, setScore] = useState('');
  
     const handleSubmit = (e) => {
         e.preventDefault();
-        const formData = { avatar:avatar, score:score };
+        const formData = [[(parseInt(data[data.length-1]['Id'])+1).toString(),avatar,score]];
         onSave(formData);
+        setAvatar("");
+        setScore("");
         onClose();
     }
  

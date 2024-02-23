@@ -4,8 +4,9 @@ import { FaPlus } from "react-icons/fa6";
 import DataEntryModal from "../DataEntryModal/DataEntryModal";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { postTableData } from "../../libs/apis/dataTable";
  
-export default function Header({fetchData}) {
+export default function Header({fetchData,data}) {
     const [isModalOpen, setIsModalOpen] = useState(false);
  
     const handleOpenModal = () => {
@@ -14,6 +15,7 @@ export default function Header({fetchData}) {
 
     const handleSync = () => {
         const res = fetchData();
+        console.log(res);
         if (res) {
             toast.success('Fetched data successfully', {
                 position: 'top-right',
@@ -25,8 +27,13 @@ export default function Header({fetchData}) {
         setIsModalOpen(false);
     };
  
-    const handleSavePerformance = (data) => {
+    const handleSavePerformance = async(data) => {
         // Handle saving performance data here
+        const res=await postTableData(data);
+        console.log(res);
+        if(res.success){
+            fetchData();
+        }
         console.log('Performance data:', data);
     };
  
@@ -37,6 +44,7 @@ export default function Header({fetchData}) {
                     isOpen={isModalOpen}
                     onClose={handleCloseModal}
                     onSave={handleSavePerformance}
+                    data={data}
                 />
                 <Flex>
                     <Text fontSize="2rem" fontWeight="bold">Data Table</Text>
