@@ -17,10 +17,10 @@ const TableView = ({data}) => {
  
   return (
     <Flex w="100%" flexDir={'column'}>
-        <TableContainer h="30rem" display={'flex'} justifyContent='center' alignItems={'center'} w="100%" boxShadow={'xl'} border='1px' borderColor='#8987935' >
+        <TableContainer h="30rem" overflowY='auto' display={'flex'} justifyContent='center' alignItems={'center'} w="100%" boxShadow={'xl'} border='1px' borderColor='#8987935' >
             <Table size='lg'>
                 <Thead  whiteSpace="normal">
-                    <Tr position="sticky" top='0' bg='black' h='5rem'>
+                    <Tr position="sticky" top='0' bg='black' h='3rem'>
                         {customHeaders.map((header) => {
                             return(
                                 <Th bg={'black'} textAlign={"center"} color="#ffffff" key={header} minWidth='15rem'>
