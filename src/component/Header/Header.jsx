@@ -17,17 +17,8 @@ export default function Header({fetchData,data}) {
         const res = fetchData().then((res) => {
             if (res.success) {
                 alert("Fetched data successfully");
-                // toast.success('Fetched data successfully', {
-                //     position: 'top-right',
-                // });
             } 
         });;
-        console.log(res);
-        // if (res) {
-        //     toast.success('Fetched data successfully', {
-        //         position: 'top-right',
-        //     });
-        // }
     }
  
     const handleCloseModal = () => {
@@ -35,9 +26,7 @@ export default function Header({fetchData,data}) {
     };
  
     const handleSavePerformance = async(data) => {
-        // Handle saving performance data here
         const res=await postTableData(data);
-        console.log(res);
         if(res.success){
             fetchData();
         }
