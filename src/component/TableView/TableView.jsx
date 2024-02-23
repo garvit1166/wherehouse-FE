@@ -9,76 +9,14 @@ import {
     Flex,
   } from "@chakra-ui/react";
 import React from 'react'
-import { useToast } from "@chakra-ui/react";
+
 import './tableView.css'
  
 const customHeaders = ['id','Avatar', 'Performance_Score']
-const data = [
-    {
-        id:1,
-        Avatar:'Test1',
-        Performance_Score:2
-    },
-    {
-        id:2,
-        Avatar:'Test1',
-        Performance_Score:2
-    },
-    {
-        id:3,
-        Avatar:'Test1',
-        Performance_Score:2
-    },
-    {
-        id:4,
-        Avatar:'Test1',
-        Performance_Score:2
-    },
-    {
-        id:5,
-        Avatar:'Test1',
-        Performance_Score:2
-    },
-    {
-        id:6,
-        Avatar:'Test1',
-        Performance_Score:2
-    },
-    {
-        id:1,
-        Avatar:'Test1',
-        Performance_Score:2
-    },
-    {
-        id:2,
-        Avatar:'Test1',
-        Performance_Score:2
-    },
-    {
-        id:3,
-        Avatar:'Test1',
-        Performance_Score:2
-    },
-    {
-        id:4,
-        Avatar:'Test1',
-        Performance_Score:2
-    },
-    {
-        id:5,
-        Avatar:'Test1',
-        Performance_Score:2
-    },
-    {
-        id:6,
-        Avatar:'Test1',
-        Performance_Score:2
-    },
-   
-]
+
  
-const TableView = () => {
-    const toast = useToast();
+const TableView = ({data}) => {
+    
  
   return (
     <Flex w="100%" flexDir={'column'}>
