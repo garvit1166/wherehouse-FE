@@ -14,7 +14,7 @@ import { useState } from "react";
 import logo from '../../assets/logo.png'
  
 const Sidebar = () => {
-    const [username, setUsername] = useState("Guest")
+    const [username] = useState("Guest")
     return (
         <Flex
             h="91.2vh"

@@ -1,4 +1,4 @@
-import { Flex, Icon, Menu, MenuButton, Text, Tooltip } from "@chakra-ui/react";
+import { Flex, Icon, Menu, MenuButton, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
  
 const NavItem = ({

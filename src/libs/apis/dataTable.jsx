@@ -1,5 +1,4 @@
 import axios from "axios";
-import { api } from "./base"
 
 export const fetchTableData = async() => {
     const response = await axios.get('https://wherehousebe.onrender.com/');
